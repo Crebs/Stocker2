@@ -34,7 +34,7 @@ let package = Package(
             .product(name: "Vapor", package: "vapor"),
             .product(name: "Fluent", package: "Fluent"),
             .product(name: "FluentSQLiteDriver", package: "fluent-sqlite-driver"),
-            .product(name: "Leaf", package: "leaf"),
+            // .product(name: "~", package: "leaf"),
         ])
     ]
 )

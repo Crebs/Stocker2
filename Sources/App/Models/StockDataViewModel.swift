@@ -17,7 +17,10 @@ class StockDataViewModel {
         
         combinedFuture.whenSuccess { (analysisResults, prices) in
             let updatedAnalysisResults = self.mapPricesToAnalysisResults(prices: prices, analysisResults: analysisResults) 
-            completion(updatedAnalysisResults)
+            let sortedResults = updatedAnalysisResults.sorted { lhs, rhs in
+                return lhs.grade < rhs.grade
+            }
+            completion(sortedResults)
         }
     }
 

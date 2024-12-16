@@ -2,11 +2,21 @@ import Foundation
 
 struct StockAnalyzer {
     var financialData: [Financial]
-    let discountRate = 0.1
-    let growthRate = 0.03
+    let discountRate = 0.08
+    let growthRate = 0.06
 
     func intrinsicValue() -> Double {
+        guard discountRate > growthRate else {
+            print("Invalid rates: Discount rate must be greater than growth rate.")
+            return 0
+        }
+        
         let financialDataInRange = getFinancialDataWithPositiveCashFlow()
+        guard !financialDataInRange.isEmpty else {
+            print("No valid financial data with positive cash flows.")
+            return 0
+        }
+
         return (discountedCashFlow(financialDataInRange) + terminalValue(financialDataInRange)) / pow(1 + discountRate, Double(financialDataInRange.count))
     }
 
