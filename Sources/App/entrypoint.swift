@@ -28,7 +28,7 @@ enum Entrypoint {
 
     static func runAsClient(_ app: Application) {
         vm = StockDataViewModel(app: app)
-        let stockList = ["AAPL", "GM", "AMD", "TGT", "INTC", "AMZN"]
+        let stockList = ["AAPL", "GM", "AMD", "TGT", "INTC", "AMZN", "PARA", "TTWO", "DIS", "MMM", "SOLV", "CRM", "PEP", "SPY", "SLDP", "SNDL"]
         vm?.fetchBatchStockData(tickers: stockList) { results in
             for result in results {
                 print("\(result.name) intrinsic value: \(result.intrinsicValue), margin of safty grade: \(result.grade)")

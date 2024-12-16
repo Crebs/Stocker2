@@ -19,7 +19,8 @@ struct StockAnalysisResult {
         case 1.0...: return "A"
         case 0.5..<1.0: return "B"
         case 0.2..<0.5: return "C"
-        default: return "F"   
+        case 0.0...: return "D"
+        default: return "F" 
         }
     }
 }
