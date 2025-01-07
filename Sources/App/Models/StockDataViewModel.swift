@@ -25,15 +25,15 @@ class StockDataViewModel {
             let results = try await fetchBatchStockData(tickers: tickers)
         
             // Define column widths
-            let symbolWidth = 6
-            let intrinsicWidth = 20
-            let priceWidth = 10
-            let gradeWidth = 3
+            let symbolWidth = 7
+            let intrinsicWidth = 16
+            let priceWidth = 6
+            let gradeWidth = 5
         
             // Header
             let header = String(
-                format: "%-\(symbolWidth)@ %-\(intrinsicWidth)@ %-\(priceWidth)@ %-@",
-                "Symbol", "Intrinsic Value", "Price", "Grade"
+                format: "%-\(symbolWidth)@ %-\(intrinsicWidth)@ %-\(priceWidth)@ %-\(gradeWidth)@",
+                "Sym", "Value", "Price", "Grade"
             )
             var output: [String] = [header]
         
@@ -48,7 +48,7 @@ class StockDataViewModel {
                     format: "%-\(symbolWidth)@ %-\(intrinsicWidth)@ %-\(priceWidth)@ %-\(gradeWidth)@",
                     symbol, value, price, grade
                 )
-                output.append("formattedLine \(formattedLine)")
+                output.append("\(formattedLine)")
             }
         
             return output

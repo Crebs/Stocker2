@@ -33,7 +33,7 @@ enum Entrypoint {
         Task {
             let results = await vm.fetchBatchStockDataOutput(tickers: stockList)
             for result in results {
-                print("Output: \(result)")
+                print("\(result)")
             }
             exit(0)
         }
